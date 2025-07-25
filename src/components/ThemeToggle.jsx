@@ -1,72 +1,52 @@
-import React, { useState, useEffect } from 'react';
-import { FaSun, FaMoon } from 'react-icons/fa';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { FaSun, FaMoon } from 'react-icons/fa';
 
 const ThemeToggle = () => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     // Check for saved theme preference or use device preference
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
-    if (savedTheme === 'light') {
-      setIsDarkMode(false);
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      setDarkMode(true);
+      document.documentElement.classList.add('dark');
+    } else {
+      setDarkMode(false);
       document.documentElement.classList.remove('dark');
-    } else if (savedTheme === 'dark') {
-      setIsDarkMode(true);
-      document.documentElement.classList.add('dark');
-    } else if (prefersDark) {
-      setIsDarkMode(true);
-      document.documentElement.classList.add('dark');
     }
   }, []);
 
   const toggleTheme = () => {
-    if (isDarkMode) {
+    if (darkMode) {
       // Switch to light mode
       document.documentElement.classList.remove('dark');
       localStorage.setItem('theme', 'light');
-      setIsDarkMode(false);
+      setDarkMode(false);
     } else {
       // Switch to dark mode
       document.documentElement.classList.add('dark');
       localStorage.setItem('theme', 'dark');
-      setIsDarkMode(true);
+      setDarkMode(true);
     }
   };
 
   return (
-    <motion.div 
-      className="flex items-center bg-gray-100 dark:bg-gray-800 rounded-full px-3 py-1 transition-colors duration-300"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
+    <motion.button
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
+      onClick={toggleTheme}
+      className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-yellow-300 focus:outline-none transition-colors duration-300"
+      aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
     >
-      <span className={`mr-2 text-sm font-medium ${isDarkMode ? 'text-gray-400' : 'text-gray-700 font-semibold'}`}>
-        Light
-      </span>
-      <motion.button
-        onClick={toggleTheme}
-        className={`relative w-12 h-6 rounded-full flex items-center transition-colors duration-300 focus:outline-none ${isDarkMode ? 'bg-teal-600' : 'bg-gray-300'}`}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
-      >
-        <motion.div 
-          className={`absolute w-5 h-5 rounded-full transform transition-transform duration-300 flex items-center justify-center ${isDarkMode ? 'translate-x-6 bg-gray-900' : 'translate-x-1 bg-white'}`}
-        >
-          {isDarkMode ? (
-            <FaMoon className="text-yellow-300" size={12} />
-          ) : (
-            <FaSun className="text-yellow-500" size={12} />
-          )}
-        </motion.div>
-      </motion.button>
-      <span className={`ml-2 text-sm font-medium ${isDarkMode ? 'text-gray-300 font-semibold' : 'text-gray-400'}`}>
-        Dark
-      </span>
-    </motion.div>
+      {darkMode ? (
+        <FaSun size={18} />
+      ) : (
+        <FaMoon size={18} />
+      )}
+    </motion.button>
   );
 };
 

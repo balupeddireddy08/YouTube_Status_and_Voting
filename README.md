@@ -1,12 +1,104 @@
-# React + Vite
+# YouTube Content Roadmap
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A website that provides transparency to your YouTube audience by showing the progress of upcoming videos. Each video has a detailed progress tracking system that shows the current stage of development.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Video Progress Tracking**: Track the progress of videos across multiple stages (Resource Gathering, Content Development, Recording, Editing, Finalizing).
+- **Responsive Design**: Fully responsive design that works well on mobile, tablet, and desktop devices.
+- **Dark/Light Mode**: Toggle between dark and light themes based on user preference.
 
-## Expanding the ESLint configuration
+## Progress Stages
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Each video goes through the following stages:
+
+1. **Resource Gathering**: Collecting research materials, references, and planning the content.
+2. **Developing Content**: Creating scripts, outlines, and organizing the video structure.
+3. **Video Recording**: Recording the actual video footage.
+4. **Video Editing**: Editing the video, adding effects, transitions, and sound.
+5. **Finalizing Edits**: Final review, making last-minute adjustments, and preparing for upload.
+
+## Tech Stack
+
+- React
+- React Router
+- Tailwind CSS
+- Framer Motion for animations
+- Local Storage for data persistence
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v14.0.0 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/balupeddireddy08/Youtube_Status_Website.git
+   cd Youtube_Status_Website
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open [http://localhost:5173](http://localhost:5173) to view it in your browser.
+
+## Updating Video Data
+
+To update video information and progress, modify the `videoData` array in `src/services/videoService.js`. Each video follows this structure:
+
+```javascript
+{
+  id: 1,
+  title: "Video Title",
+  description: "Video description...",
+  expectedReleaseDate: "June 15, 2024",
+  thumbnail: null, // or URL to thumbnail image
+  progress: [
+    { id: 'resource', completed: true, percentage: 100 },
+    { id: 'content', completed: false, percentage: 60 },
+    { id: 'recording', completed: false, percentage: 0 },
+    { id: 'editing', completed: false, percentage: 0 },
+    { id: 'finalizing', completed: false, percentage: 0 }
+  ]
+}
+```
+
+After updating the data, rebuild and redeploy the site.
+
+## Deployment
+
+To build for production:
+
+```bash
+npm run build
+```
+
+This will generate a `dist` folder with the production-ready files.
+
+For GitHub Pages deployment:
+
+```bash
+npm run deploy
+```
+
+## License
+
+This project is licensed under the MIT License.
+
+## Acknowledgments
+
+- [Peddi Reddy Bala Gopal Reddy's YouTube Channel](https://www.youtube.com/@PEDDIREDDYBALAGOPALREDDY)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [React Router](https://reactrouter.com/)

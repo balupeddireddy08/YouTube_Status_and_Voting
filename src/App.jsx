@@ -1,14 +1,8 @@
 import React, { useEffect } from 'react';
-import Hero from './components/Hero';
-import Header from './components/Header';
-import About from './components/About';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Articles from './components/Articles';
-import Certifications from './components/Certifications';
-import YouTube from './components/YouTube';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import NotFound from './pages/NotFound';
 import './App.css';
 
 function App() {
@@ -25,20 +19,15 @@ function App() {
   }, []);
   
   return (
-    <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen font-sans transition-colors duration-300">
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Certifications />
-        <Articles />
-        <YouTube />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <div className="min-h-screen font-sans text-gray-900 dark:text-white transition-colors duration-300">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
