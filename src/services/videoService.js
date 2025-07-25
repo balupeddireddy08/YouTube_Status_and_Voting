@@ -6,30 +6,34 @@
 const videoData = [
   {
     id: 1,
-    title: "Building a YouTube Status Website",
-    description: "How to build a React app to show your audience your upcoming YouTube videos and their progress.",
-    expectedReleaseDate: "May 20, 2024",
+    title: "Playlist Introduction: FastAPI for AI Projects",
+    description: "Explaining the FastAPI framework and it's features, and how to use it for AI projects with simple examples.",
+    expectedReleaseDate: "August 1, 2025",
     thumbnail: null,
     progress: [
-      { id: 'resource', completed: true, percentage: 100 },
+      { id: 'researching', completed: true, percentage: 100 },
       { id: 'content', completed: true, percentage: 100 },
+      { id: 'scripting', completed: true, percentage: 100 },
       { id: 'recording', completed: true, percentage: 100 },
-      { id: 'editing', completed: false, percentage: 70 },
-      { id: 'finalizing', completed: false, percentage: 0 }
+      { id: 'editing', completed: false, percentage: 100 },
+      { id: 'thumbnail', completed: false, percentage: 0 },
+      { id: 'publishing', completed: false, percentage: 0 }
     ]
   },
   {
     id: 2,
-    title: "Creating a Custom LLM Agent with OpenAI Functions",
-    description: "Learn how to build a custom agent using OpenAI's function calling capabilities.",
-    expectedReleaseDate: "June 1, 2024",
+    title: "FastAPI Introduction",
+    description: "Explaining the FastAPI basics, with the help of simple coffee shop example.",
+    expectedReleaseDate: "August 8, 2025",
     thumbnail: null,
     progress: [
-      { id: 'resource', completed: true, percentage: 100 },
-      { id: 'content', completed: false, percentage: 60 },
-      { id: 'recording', completed: false, percentage: 0 },
-      { id: 'editing', completed: false, percentage: 0 },
-      { id: 'finalizing', completed: false, percentage: 0 }
+      { id: 'researching', completed: true, percentage: 100 },
+      { id: 'content', completed: true, percentage: 100 },
+      { id: 'scripting', completed: true, percentage: 100 },
+      { id: 'recording', completed: true, percentage: 100 },
+      { id: 'editing', completed: false, percentage: 100 },
+      { id: 'thumbnail', completed: false, percentage: 0 },
+      { id: 'publishing', completed: false, percentage: 0 }
     ]
   },
   {
@@ -39,11 +43,13 @@ const videoData = [
     expectedReleaseDate: "June 15, 2024",
     thumbnail: null,
     progress: [
-      { id: 'resource', completed: true, percentage: 100 },
-      { id: 'content', completed: false, percentage: 30 },
-      { id: 'recording', completed: false, percentage: 0 },
-      { id: 'editing', completed: false, percentage: 0 },
-      { id: 'finalizing', completed: false, percentage: 0 }
+      { id: 'researching', completed: true, percentage: 100 },
+      { id: 'content', completed: true, percentage: 100 },
+      { id: 'scripting', completed: true, percentage: 100 },
+      { id: 'recording', completed: true, percentage: 100 },
+      { id: 'editing', completed: false, percentage: 100 },
+      { id: 'thumbnail', completed: false, percentage: 0 },
+      { id: 'publishing', completed: false, percentage: 0 }
     ]
   },
   {
@@ -53,11 +59,13 @@ const videoData = [
     expectedReleaseDate: "July 1, 2024",
     thumbnail: null,
     progress: [
-      { id: 'resource', completed: true, percentage: 80 },
-      { id: 'content', completed: false, percentage: 0 },
-      { id: 'recording', completed: false, percentage: 0 },
-      { id: 'editing', completed: false, percentage: 0 },
-      { id: 'finalizing', completed: false, percentage: 0 }
+      { id: 'researching', completed: true, percentage: 100 },
+      { id: 'content', completed: true, percentage: 100 },
+      { id: 'scripting', completed: true, percentage: 100 },
+      { id: 'recording', completed: true, percentage: 100 },
+      { id: 'editing', completed: false, percentage: 100 },
+      { id: 'thumbnail', completed: false, percentage: 0 },
+      { id: 'publishing', completed: false, percentage: 0 }
     ]
   },
   {
@@ -67,11 +75,13 @@ const videoData = [
     expectedReleaseDate: "July 15, 2024",
     thumbnail: null,
     progress: [
-      { id: 'resource', completed: false, percentage: 40 },
-      { id: 'content', completed: false, percentage: 0 },
-      { id: 'recording', completed: false, percentage: 0 },
-      { id: 'editing', completed: false, percentage: 0 },
-      { id: 'finalizing', completed: false, percentage: 0 }
+      { id: 'researching', completed: true, percentage: 100 },
+      { id: 'content', completed: true, percentage: 100 },
+      { id: 'scripting', completed: true, percentage: 100 },
+      { id: 'recording', completed: true, percentage: 100 },
+      { id: 'editing', completed: false, percentage: 100 },
+      { id: 'thumbnail', completed: false, percentage: 0 },
+      { id: 'publishing', completed: false, percentage: 0 }
     ]
   }
 ];
