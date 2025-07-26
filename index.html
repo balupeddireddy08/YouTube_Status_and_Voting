@@ -2,15 +2,56 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/youtube.svg" />
+    <base href="/YouTube_Status_and_Voting/">
+    <link rel="icon" type="image/svg+xml" href="youtube.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Track the progress of upcoming YouTube videos by Peddi Reddy Bala Gopal Reddy" />
     <meta name="theme-color" content="#ef4444" />
     <title>YouTube Content Roadmap | Peddi Reddy Bala Gopal Reddy</title>
-    <script type="module" crossorigin src="/assets/index-BtBRwds8.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-Dx6TwjOX.css">
+    <script>
+      // Debug script to help troubleshoot blank page issues
+      console.log("Debug: Page loading started");
+      window.addEventListener('error', function(e) {
+        console.error('Global error:', e.message, e.filename, e.lineno);
+        document.getElementById('root').innerHTML = '<div style="padding: 20px; text-align: center;"><h2>Error loading application</h2><p>' + e.message + '</p></div>';
+      });
+      
+      window.addEventListener('DOMContentLoaded', function() {
+        console.log("Debug: DOM loaded");
+      });
+      window.addEventListener('load', function() {
+        console.log("Debug: All resources loaded");
+        // Check if root element exists
+        var root = document.getElementById('root');
+        if (root) {
+          console.log("Debug: Root element found");
+          if (root.children.length === 0) {
+            console.log("Debug: Root element is empty");
+            // Add fallback content if root is empty after 2 seconds
+            setTimeout(function() {
+              if (root.children.length === 0) {
+                root.innerHTML = '<div style="padding: 20px; text-align: center;">' +
+                  '<h1>Loading Failed</h1>' +
+                  '<p>Please try refreshing the page. If the problem persists, you can:</p>' +
+                  '<p><a href="https://www.youtube.com/@PEDDIREDDYBALAGOPALREDDY" style="color: #ef4444;">Visit my YouTube Channel</a></p>' +
+                  '</div>';
+              }
+            }, 2000);
+          }
+        } else {
+          console.log("Debug: Root element not found");
+        }
+      });
+    </script>
+    <script type="module" crossorigin src="/YouTube_Status_and_Voting/assets/index-elxj6nup.js"></script>
+    <link rel="stylesheet" crossorigin href="/YouTube_Status_and_Voting/assets/index-Fe5Km-jk.css">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Fallback content until React loads -->
+      <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+        <p>Loading YouTube Content Roadmap...</p>
+      </div>
+    </div>
   </body>
 </html>

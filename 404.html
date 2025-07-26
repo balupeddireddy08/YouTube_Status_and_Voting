@@ -5,25 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Page Not Found | YouTube Content Roadmap</title>
   <script>
-    // Single Page Apps for GitHub Pages
-    // MIT License
-    // Modified from https://github.com/rafgraph/spa-github-pages
-    (function(l) {
-      if (l.search[1] === '/' ) {
-        var decoded = l.search.slice(1).split('&').map(function(s) { 
-          return s.replace(/~and~/g, '&')
-        }).join('?');
-        window.history.replaceState(null, null,
-            l.pathname.slice(0, -1) + decoded + l.hash
-        );
+    // Redirect to the main page with the intended path as a query parameter
+    // This technique is used to handle SPA routing on GitHub Pages
+    (function() {
+      // Get the current path excluding the base path
+      var basePath = '/YouTube_Status_and_Voting/';
+      var path = window.location.pathname;
+      
+      // Remove the base path if present
+      if (path.indexOf(basePath) === 0) {
+        path = path.substr(basePath.length);
       }
-    }(window.location))
+      
+      // If the path is not empty, redirect to the home page with the path as a query parameter
+      if (path !== '/' && path !== '') {
+        window.location.href = basePath + '?p=' + path;
+      } else {
+        window.location.href = basePath;
+      }
+    })();
   </script>
 </head>
 <body>
-  <script>
-    // Redirect to the main page and let React handle routing
-    window.location.href = "/";
-  </script>
+  <p>Redirecting...</p>
 </body>
 </html> 
