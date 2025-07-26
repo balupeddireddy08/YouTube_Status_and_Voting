@@ -38,9 +38,9 @@ const videoData = [
   },
   {
     id: 3,
-    title: "RAG Systems with Vector Databases",
-    description: "Advanced techniques for building Retrieval Augmented Generation systems.",
-    expectedReleaseDate: "June 15, 2024",
+    title: "Understanding Type Hints with a Bookstore API",
+    description: "We'll explore one of the most powerful features of modern Python: Type Hints. We'll learn what they are, and how FastAPI uses them to make building APIs easier and more reliable.",
+    expectedReleaseDate: "August 15, 2025",
     thumbnail: null,
     progress: [
       { id: 'researching', completed: true, percentage: 100 },
@@ -54,9 +54,9 @@ const videoData = [
   },
   {
     id: 4,
-    title: "Building AI Agents with LangGraph",
-    description: "Create complex AI agent workflows using the LangGraph framework.",
-    expectedReleaseDate: "July 1, 2024",
+    title: "Pydantic Data Validation using Recipe Master Example",
+    description: "This video introduces Pydantic, a powerful Python library that makes sure the data you're working with is always correct and in the right format. We'll use it to validate the data in our Recipe Master API.",
+    expectedReleaseDate: "August 22, 2025",
     thumbnail: null,
     progress: [
       { id: 'researching', completed: true, percentage: 100 },
@@ -70,16 +70,16 @@ const videoData = [
   },
   {
     id: 5,
-    title: "Fine-tuning LLMs for Custom Tasks",
-    description: "Learn how to fine-tune large language models for specific use cases.",
-    expectedReleaseDate: "July 15, 2024",
+    title: "FastAPI routing and path parameters",
+    description: "This video explains how to use FastAPI routing and path parameters to define routes, and organize your API effectively.",
+    expectedReleaseDate: "August 29, 2025",
     thumbnail: null,
     progress: [
       { id: 'researching', completed: true, percentage: 100 },
       { id: 'content', completed: true, percentage: 100 },
       { id: 'scripting', completed: true, percentage: 100 },
-      { id: 'recording', completed: true, percentage: 100 },
-      { id: 'editing', completed: false, percentage: 100 },
+      { id: 'recording', completed: true, percentage: 0 },
+      { id: 'editing', completed: false, percentage: 0 },
       { id: 'thumbnail', completed: false, percentage: 0 },
       { id: 'publishing', completed: false, percentage: 0 }
     ]
