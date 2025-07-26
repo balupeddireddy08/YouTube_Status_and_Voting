@@ -23,6 +23,29 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Function to handle anchor link clicks
+  const scrollToSection = (id) => {
+    // Close mobile menu if open
+    if (isOpen) setIsOpen(false);
+    
+    // Navigate to home page first if not there
+    if (location.pathname !== '/') {
+      // Wait for navigation to complete
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      // Already on home page, just scroll
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
       scrolled 
@@ -51,19 +74,19 @@ const Navbar = () => {
           >
             Home
           </Link>
-          <a 
-            href={location.pathname === '/' ? '#upcoming-videos' : '/#upcoming-videos'}
+          <button 
+            onClick={() => scrollToSection('upcoming-videos')}
             className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
           >
             Upcoming Videos
-          </a>
-          <a 
-            href={location.pathname === '/' ? '#vote-form' : '/#vote-form'}
+          </button>
+          <button 
+            onClick={() => scrollToSection('vote-form')}
             className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors flex items-center"
           >
             <FaVoteYea className="mr-1" size={14} />
             Vote
-          </a>
+          </button>
           <a 
             href="https://www.youtube.com/@PEDDIREDDYBALAGOPALREDDY/videos"
             target="_blank"
@@ -109,21 +132,19 @@ const Navbar = () => {
             >
               Home
             </Link>
-            <a 
-              href={location.pathname === '/' ? '#upcoming-videos' : '/#upcoming-videos'}
-              className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2 transition-colors"
-              onClick={() => setIsOpen(false)}
+            <button 
+              onClick={() => scrollToSection('upcoming-videos')}
+              className="text-left text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2 transition-colors"
             >
               Upcoming Videos
-            </a>
-            <a 
-              href={location.pathname === '/' ? '#vote-form' : '/#vote-form'}
-              className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2 transition-colors flex items-center"
-              onClick={() => setIsOpen(false)}
+            </button>
+            <button 
+              onClick={() => scrollToSection('vote-form')}
+              className="text-left text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2 transition-colors flex items-center"
             >
               <FaVoteYea className="mr-2" size={14} />
               Vote for Next Videos
-            </a>
+            </button>
             <a 
               href="https://www.youtube.com/@PEDDIREDDYBALAGOPALREDDY/videos"
               target="_blank"

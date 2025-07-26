@@ -6,6 +6,14 @@ import VoteForm from '../components/VoteForm';
 import profilePic from '../media/images/my_pic.png';
 
 const Home = () => {
+  // Function to scroll to a section
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
       {/* Hero Section */}
@@ -51,23 +59,23 @@ const Home = () => {
                 </div>
               </motion.a>
 
-              <motion.a
-                href="#upcoming-videos"
+              <motion.button
+                onClick={() => scrollToSection('upcoming-videos')}
                 className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 See Upcoming Videos
-              </motion.a>
+              </motion.button>
 
-              <motion.a
-                href="#vote-form"
+              <motion.button
+                onClick={() => scrollToSection('vote-form')}
                 className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition-colors"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 Vote for Next Videos
-              </motion.a>
+              </motion.button>
             </div>
           </motion.div>
         </div>
